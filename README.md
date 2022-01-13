@@ -2,7 +2,7 @@
 
 ## Outline
 - [Background](#background)
-- [Starter Code](#starter-code)
+- [Starter Code](#starter-code-and-using-git)
 - [High-Level TODOs for Programming](#high-level-todos-for-programming)
 - [Implement the `CelestialBody` Class](#implement-the-celestialbody-class)
 - [Implement the `NBody` Class](#implement-the-nbody-class)
@@ -10,10 +10,6 @@
 - [Submitting, Reflect, and Grading](#submitting-reflect-and-grading)
 
 ## Background
-<details>
-<summary>Click to Expand Background</summary>
-
-<br>
 
 This assignment heavily borrows from Princeton and Berkeley Computer Science and the work of Robert Sedgewick, Kevin Wayne and Josh Hug.
 
@@ -21,117 +17,37 @@ This assignment heavily borrows from Princeton and Berkeley Computer Science and
 For a more complete understanding of the Physics you can reference [this document][Physics].
 
 In this assignment, you will write a program to simulate the motion of _N_ objects in a plane, mutually affected by gravitational forces, and animate the results. Such methods are widely used in cosmology, semiconductors, and fluid dynamics to study complex physical systems. Ultimately, you will be creating a driver program `NBody.java` that draws an animation of bodies moving in space interacting with each other subject to interacting and mutual gravitational forces. These bodies are modeled by the class `CelestialBody.java` that you'll implement and test independently of the simulation.
+
 Here's an animation of a completed project running with some planets in our solar system. The animation repeats after one earth year, your program continues until the simulation completes.
 
 <div align="center">
   <img width="500" height="500" src="p1-figures/planets.gif">
 </div>
-</details>
-
-## Starter Code
-<details>
-<summary>Click to Expand Starter Code</summary>
-
-<br>
-
-First fork the starter code from GitLab under your own namespace, then clone it using the `git clone` command (details below): https://coursework.cs.duke.edu/201fall21/P1-NBody
-
-The starter code contains several image files in the `images` folder, `data` for several simulations in the data folder, the beginning of the `NBody` class in `NBody.java`, a stub version of `CelestialBody.java`, many testing Java files and a library file for drawing.
-
-**Note**: You're given stub code (not complete) for all methods in the class `CelestialBody.java` -- as you complete these methods you'll get closer to completing the project. You'll test groups of related methods using provided test classes.
-
-### Integrating Git with IntelliJ
-
-To further help with all things Git, please watch the brief tutorial videos here.
-
-Use these steps to clone the project and import to IntelliJ:
-
-1. First fork the P1 NBody assignment using the link https://coursework.cs.duke.edu/201fall21/P1-NBody. 
-2. The screen shot below shows the fork icon.
-
-<div align="center">
-  <img width="976" height="141" src="p1-figures/fork.png">
-</div>
 
 
-3. Navigate in your Git shell using `cd` (change directory) commands to your 201 IntelliJ workspace. Use `pwd` (print working directory) to verify you're there.
-4. In your project’s homepage on GitLab, you'll see the ***SSH URL*** for the project you’ll use when you Clone the project from GitLab: see the image below.
+## Starter Code and Using Git
+You must have installed all software (Java, Git, VS Code) before you can complete the project.You can find the [directions for installation here](https://coursework.cs.duke.edu/201-public-documentation/resources-201/-/blob/main/installingSoftware.md).
 
-<div align="center">
-  <img width="385" height="217" src="p1-figures/clone.png">
-</div>
+We'll be using Git and the installation of GitLab at [coursework.cs.duke.edu](https://coursework.cs.duke.edu). All code for classwork will be kept here. Git is software used for version control, and GitLab is an online repository to store code in the cloud using Git.
 
-- Copy the SSH URL using Command-C/Control-C; **DO NOT use “Download ZIP”!**
-- In the Git shell, type `git clone your-project-URL`
-- Replace “`your-project-URL`” with the SSH URL you copied. Use Command-V/Control-V (or right-click) to paste.
-Typing `ls` should show a directory with the project name, which contains the files for the project.
-5. Alternatively, if you clone directly in IntelliJ:
-- Copy the ***SSH URL*** using Command-C/Control-C
-- Open IntelliJ and select “Get from Version Control” on the main menu
-- To get to the main menu, hit File -> Close Project if you’ve already opened a previous project.
-- Paste the SSH URL into the URL option, make sure that the directory is the directory in which you want to store the project, for example, IdeaProjects/P0 and then click “Clone”. 
-6. Using the IntelliJ menu, open the project you just cloned.
+**[This document details the workflow](https://coursework.cs.duke.edu/201-public-documentation/resources-201/-/blob/main/projectWorkflow.md) for downloading the starter code for the project, updating your code on coursework using Git, and ultimately submitting to Gradescope for autograding.** We recommend that you read and follow the directions carefully while working on a project! While coding, we recommend that you periodically (perhaps when completing a method or small section) push your changes as explained in Section 5.
 
-### Pushing to Git
-When you make a series of changes you want to 'save', you'll push those changes to your GitHub repository. You should do this after major changes, certainly every hour or so of coding. You'll need to use the standard Git sequence to commit and push to GitHub:
 
-```bash
-git add .
-git commit -m "a short description of your commit here"
-git push
-```
-</details>
+## Developing, Running, Testing P1 NBody
 
-## High-Level TODOs for Programming
+You're given the outline of a class `CelestialBody` with stub or missing methods and a constructor. You'll add code so that the class `CelestialBody.java` works as described below. This class represents a celestial body such as a planet or a sun. You'll implement [a constructor, methods to get the state of a `CelestialBody` (getters)](#instance-variables-constructors-getters), Getters, and [methods that determine the interactions between `CelestialBody` objects due to gravitational forces](#writing-the-methods). 
+
+Finally, you will create a class `NBody.java` that drives a simulation between planets, suns, and celestial bodies interacting. This class will read a file of data that specifies the initial positions and masses of the bodies and then simulates their interaction over a set time period. The simulation will also animate the interactions between the bodies.
+
+There are classes provided that help you test whether your constructor, getters, and interaction methods are correct. Running each `TestX` class will print *PASS* or *FAIL* messages to your terminal/console. You should only proceed to the next step when you've passed the current test. When these tests pass, there's a good chance your code is correct, but you may uncover additional errors when you run the `NBody` simulation.
+
+
+### `CelestialBody` Variables, Constructor, and Getter Methods
+
+This section introduces the `CelestialBody` class and describes its instance variables, constructor, and getter methods, which you will need to implement.
 
 <details>
-<summary>Click to Expand High-Level TODOs for Programming</summary>
-
-<br>
-
-- You're given the outline of a class `CelestialBody` with stub or missing methods and a constructor. You'll add code so that the class `CelestialBody.java` works as described below. This class represents a celestial body such as a planet or a sun. You'll implement [a constructor, methods to get the state of a `CelestialBody` (getters)](#instance-variables-constructors-getters), Getters, and [methods that determine the interactions between `CelestialBody` objects due to gravitational forces](#writing-the-methods). There are classes provided that help you test whether your constructor, getters, and interaction methods are correct.
-- You'll create a class `NBody.java` that drives a simulation between planets, suns, and celestial bodies interacting. This class will read a file of data that specifies the initial positions and masses of the bodies and then simulates their interaction over a set time period. The simulation will also animate the interactions between the bodies.
-
-### Program and Test `NBody`
-You'll implement the class `CelestialBody` and use the provided test classes to verify that the methods work correctly. Each step is described in detail in the complete write-up. The steps here help make it clear how to proceed in completing the assignment. You should pass each step using the associated testing program before proceeding to the next step.
-
-1. Implement the constructor and getter methods, test with `TestBodyConstructorGetters`
-2. Implement `calcDistance` and test with `TestCalcDistance`
-3. Implement `calcForceExertedBy` and test with `TestCalcForceExertedBy`
-4. Implement `calcForceExertedByX` and `calcForceExertedByY`, test with `TestCalcForceExertedByXY`
-5. Implement `calcNetForceExertedByX` and `calcNetForceExertedByY` and `test with TestCalcNetForceExertedByXY`
-6. Implement mutator method `update` and test with `TestUpdate`
-
-Running each `TestX` class will print *PASS* or *FAIL* messages in the Intellij console. You should only proceed to the next of these six steps shown above when you've passed the current test.
-
-### Program and Test `NBody`
-When these tests pass, there's a good chance your code is correct, but you may uncover errors when you run the simulation. The simulation is run using the class `NBody`, you should proceed to implement and run this simulation only after passing all the tests described above.
-
-1. After reviewing the format of the input file(s), write code for method `readRadius` and test this with the class `TestReadRadius`.
-2. Complete the method `readBodies` that creates and returns an array containing `CelestialBody` objects. Test with `TestReadBodies`.
-
-When you're confident your program reads the input, you can proceed to implementing the code that runs the simulation. Write code in the body of the for loop that runs the simulation.
-
-1. Create two double arrays and fill them in a loop over array `bodies` calling `calcNetForceExertedByX` and `calcNetForceExertedByY` for each element of bodies.
-2. Loop over each element in `bodies` and call update with corresponding values from the double arrays you just created.
-3. Loop over each body/element of `bodies` and call draw on the body.
-
-After verifying the simulation is visually correct and prints the correct output, answer the questions in the [Analysis section below](#analysis). Then push your code and test/grade your program using Gradescope, submit the Analysis on Gradescope, and complete the Reflect form.
-
-</details>
-
-## Implement the `CelestialBody` Class
-
-<details>
-<summary>Click to Expand Details on Implementing CelestialBody</summary>
-
-<br>
-
-You'll implement the `CelestialBody` class as described below. You must complete the stub constructor and all methods. You'll do this in six steps, some of which require reading about the gravitational, physical interactions between two `CelestialBody` objects. Each step has a class to test whether your code works -- tests that are a strong indication your code works correctly. _**Be sure you pass the tests in each step before proceeding to the next step**_.
-
-When your `CelestialBody.java` class passes all tests you'll write code to simulate the interactions between _**N**_ bodies. This code will be in the class `NBody.java`. You'll have some testing code for this class, but testing and debugging will require running simulations to see if the visualization and output match expected results.
-
-### Implement and Test the `CelestialBody` class
+<summary>CelestialBody Instance variables</summary>
 
 The outline from IntelliJ below shows the constructor, methods, and instance variables (or fields)  of the `CelestialBody` class. You'll see this more clearly in IntelliJ.
 
@@ -141,9 +57,11 @@ All instance variables should be `private`. All methods should be `public` (if y
   <img width="400" height="400" src="p1-figures/celestialBodyMethods.png">
 </div>
 
-### Instance variables, Constructors, Getters
-
 You'll have six instance variables: `myXPos`, `myYPos`, `myXVel`, `myYVel`, `myMass`, `myFileName`. The first five have type `double`, the last is a `String`.
+</details>
+
+<details>
+<summary>CelestialBody Constructor</summary>
 
 You'll have one constructor: it has six parameters, one for each instance variable. The signatures of is shown below. 
 
@@ -151,16 +69,24 @@ You'll have one constructor: it has six parameters, one for each instance variab
   <img width="576" height="248" src="p1-figures/celestialBodyConst1.png">
 </div>
 
+</details>
 
+<details>
+<summary>CelestialBody Getter Methods</summary>
 You'll also write six so-called getter methods specified in the class. The body of each method is a single return statement, returning the value of the corresponding instance variable. These getter methods allow the values of `private` instance variables to be accessed outside the class. For example, the method `getXVel()` is shown below. These are getter methods because they do not allow client programs to set the values, only to get the values. **You should include a comment for each getter method. Use the one for `getXVel` below as a model.
 
 <div align="center">
   <img width="310" height="115" src="p1-figures/getXVel.png">
 </div>
 
+</details>
+
 When you've implemented the constructor and the six getter methods you should be able to run the program in `TestBodyConstructorGetters.java` to see if your code is correct. When it reports that everything works you can proceed to the next step in implementing the `CelestialBody` class. The report from running `TestBodyConstructorGetters` indicates whether each getter method passes.
 
-### Writing the Methods
+### Writing the `CelestialBody` Methods
+
+Now that you have the constructor and getter methods for the `CelestialBody` class, this section details the additional methods you will need to implement. 
+
 <details>
 <summary>The method CelestialBody.calcDistance</summary>
 
@@ -294,8 +220,6 @@ a_y = \frac{F_y}{m}
 
 These steps will update the position and velocity of the body making the simulation possible. You can test this method using `TestUpdate.java`.
 
-After developing, implementing, testing, and debugging these `CelestialBody` methods you're ready to move to the simulation code.
-
 </details>
 
 <details>
@@ -306,7 +230,7 @@ After developing, implementing, testing, and debugging these `CelestialBody` met
 This **void** method is described below in the section for `NBody` that describes where to call the CelestialBody.draw method. _**This method is already written, you don't need to write it.**_
 </details>
 
-</details>
+After developing, implementing, testing, and debugging these `CelestialBody` methods you're ready to move to the simulation code.
 
 ## Implement the `NBody` Class
 
