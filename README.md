@@ -3,9 +3,10 @@
 ## Outline
 - [Background](#background)
 - [Starter Code](#starter-code-and-using-git)
-- [High-Level TODOs for Programming](#high-level-todos-for-programming)
-- [Implement the `CelestialBody` Class](#implement-the-celestialbody-class)
-- [Implement the `NBody` Class](#implement-the-nbody-class)
+- [Developing, Running, Testing P1 NBody ](#developing-running-testing-p1-nbody)
+  - [`CelestialBody` Variables, Constructor, and Getter Methods](#celestialbody-variables-constructor-and-getter-methods)
+  - [Additional `CelestialBody` Methods](#additional-celestialbody-methods)
+  - [Implement the `NBody` Class](#implement-the-nbody-class)
 - [Running the Simulation and Analysis](#running-the-simulation-and-analysis)
 - [Submitting, Reflect, and Grading](#submitting-reflect-and-grading)
 
@@ -83,7 +84,7 @@ You'll also write six so-called getter methods specified in the class. The body 
 
 When you've implemented the constructor and the six getter methods you should be able to run the program in `TestBodyConstructorGetters.java` to see if your code is correct. When it reports that everything works you can proceed to the next step in implementing the `CelestialBody` class. The report from running `TestBodyConstructorGetters` indicates whether each getter method passes.
 
-### Writing the `CelestialBody` Methods
+### Additional `CelestialBody` Methods
 
 Now that you have the constructor and getter methods for the `CelestialBody` class, this section details the additional methods you will need to implement. 
 
