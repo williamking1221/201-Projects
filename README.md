@@ -233,20 +233,13 @@ This **void** method is described below in the section for `NBody` that describe
 
 After developing, implementing, testing, and debugging these `CelestialBody` methods you're ready to move to the simulation code.
 
-## Implement the `NBody` Class
+### The `NBody` Class
 
-<details>
-<summary>Click to Expand Details on Implementing NBody</summary>
-
-<br>
-
-This class consists only of `static` methods, including the main method that runs the simulation. Your task will be to implement the three `static` methods that have been started for you in the starter code you clone from Git. That code has `// TODO` comments indicating the code you need to add in the three `static` methods. These methods are described below.
+The `NBody` class will use `CelestialBody` objects to run the simulation. This class consists only of `static` methods, including the main method that runs the simulation. Your task will be to implement the three `static` methods that have been outlined for you in the starter code. That code has `// TODO` comments indicating the code you need to add in the three `static` methods. These methods are described below.
 
 <div align="center">
   <img src="p1-figures/NBodyMethods.png">
 </div>
-
-### File Format
 
 The data for planets, suns, and celestial bodies in general is in the format shown below. All files in the folder data are in this format. This is the file `planets.txt`:
 
@@ -254,12 +247,11 @@ The data for planets, suns, and celestial bodies in general is in the format sho
   <img src="p1-figures/format.png">
 </div>
 
-
 The first value is an integer _**n**_, the number of bodies for which data is given in the file. The next value is a `double`, the radius of the universe for the simulation. This value is used to set the scale for the animation.
 
 There are _**n**_ lines, one line for each `CelestialBody`. Each line contains six values as shown above. The first five values are `doubles`: the first two are initial x and y coordinates; the next two are initial x and y velocities; the next is the mass of the `CelestialBody`. The last value on a line is a `String` specifying the file in the images folder used for the animation of the simulation.
 
-### Writing the Methods
+### NBody Methods
 <details>
 <summary>The method NBody.readRadius</summary>
 
@@ -303,20 +295,15 @@ Most of the other TODOs in the outer, simulation loop require implementing a loo
 - Calculate the net x and y forces for each body, storing these in the `xForces` and `yForces` arrays respectively. You'll need to loop over bodies to do this, updating array entries in your loop. You'll call `calcNetForceExertedByX`, for example, to determine the values stored in the `xForces` array.
 - Call update on each of the bodies. This will update each body's position and velocity. Again, you'll write a loop over bodies to do this. A separate loop after the previous one. The empty loops are given to you in the code.
 
-
 </details>
 
-</details>
 
 ## Running the Simulation and Analysis
 
+When the simulation is over your code prints out the final state of the universe in the same format as the input, you can expand below for an example.
+
 <details>
-<summary>Click to Expand Details on Running the Simulation and Analysis</summary>
-
-
-### Printing the Universe
-
-When the simulation is over your code prints out the final state of the universe in the same format as the input, e.g.:
+<summary>Example Simulation Output</summary>
 
 |             |             |             |           |           |          |
 | :---        |    :----:   |       :---: |  :---:    | :---:     | ---:     |
@@ -328,72 +315,30 @@ When the simulation is over your code prints out the final state of the universe
 | 5.6664e+05 | 7.0808e+06 | 1.0861e-01 | 1.0639e-01 | 1.9890e+30  |    sun.gif |
 | 1.0555e+11 | 2.3363e+10 |-7.5708e+03 | 3.4204e+04 | 4.8690e+24 |   venus.gif |
 
+</details>
 
-The code for printing is given to you in the NBody.java you start with. This code isn't all that exciting (which is why we've provided a solution), but we'll need this method to work correctly to autograde your assignment. ***You should NOT print anything other than the final printing shown here***. This printing is done after your simulation completes. If you use debugging print statements, be sure to remove them before testing in Gradescope.
-
+The code for printing is given to you in the `NBody.java` you start with. This code isn't all that exciting (which is why we've provided a solution), but we'll need this method to work correctly to autograde your assignment. ***You should NOT print anything other than the final printing shown here***. This printing is done after your simulation completes. If you use debugging print statements, be sure to remove them before testing in Gradescope.
 
 When the simulation finishes, you'll need to close/quit the graphics window to be able to run another simulation. Use the red X button in the upper left of the graphics window to dismiss the window.
 
 
 ### Analysis
 
-This is a section where you gain further understanding of the project by running experiments with your code and drawing conclusions on the resulting behavior. We suggest writing the answers in a text file or with a word processor and then **submitting the answers as a PDF to the Analysis assignment on Gradescope.**
+This is a section where you gain further understanding of the project by running experiments with your code and drawing conclusions on the resulting behavior. You will need to run the simulation and observe the output to answer the questions. Write your answers in a text file / word processor and then **submit the answers as a PDF to the Analysis assignment on Gradescope.** Teaching assistants will look at your responses and grade them.
 
-Answer the questions below by running your simulation program using the parameters provided and copying/pasting the results as asked for. Undergrad TAs will look at your responses and grade them. Remember to save your responses often and convert them into a PDF file for submission when you are finished.
+1. Copy/paste the output of your simulation when using planets.txt, running the simulation for 1,000,000 (one  million) seconds, and with a time-step/dt value of 25,000.
+2. Copy/paste the output of your simulation when using planets.txt, running the simulation for 2,000,000 (two  million) seconds, and with a time-step/dt value of 25,000.
+3. Run the simulation for a billion seconds (10^9) and a time-step/dt of a million. You should see behavior inconsistent with what is
+expected for celestial bodies. Why do you think increasing the time-step/dt to 1 million caused your simulation to behave this way?
+4. Run the simulation with the original time and dt values (`double totalTime = 39447000.0;` and `double dt = 25000.0;`), but use the input data file "data/kaleidoscope.txt". In fewer than 50 words describe the visualization you observe.
 
-```
-Copy/paste the output of your simulation when using planets.txt,
-running the simulation for 1,000,000 (one  million) seconds, and
-with a time-step/dt value of 25,000
-
-(copy/paste your output here)
-
-Copy/paste the output of your simulation when using planets.txt,
-running the simulation for 2,000,000 (two  million) seconds, and
-with a time-step/dt value of 25,000
-
-(copy/paste your output here)
-
-Run the simulation for a billion seconds (10^9) and a time-step/dt
-of a million. You should see behavior inconsistent with what is
-expected for celestial bodies. This is due to large values of dt
-when approximating forces. Why do you think increasing the time-step/dt to 1 million caused your simulation to behave this way?
-
-(write your response here)
-
-Run the simulation with the original time and dt values which are
-
-double totalTime = 39447000.0;
-double dt = 25000.0;
-
-But use the input data file "data/kaleidoscope.txt".
-In fewer than 50 words describe the visualization you observe.
-
-(write your response here)
-
-Read this article on data visualization for the blind/seeing impaired: https://medium.com/nightingale/accessibility-is-at-the-heart-of-data-visualization-64a38d6c505b --- explain your thoughts about the article with respect to the visualization in this assignment.
-
-(write your response here)
-```
-
-</details>
 
 ## Submitting, Reflect, and Grading
-<details>
-<summary>Click to Expand Details on Submitting, Reflect, and Grading</summary>
+You will submit the assignment on Gradescope. You can access Gradescope through the tab on Sakai. The [project workflow writeup](https://coursework.cs.duke.edu/201-public-documentation/resources-201/-/blob/main/projectWorkflow.md) explains the how to submit your project in detail. In particular, you cannot submit unless all your code has been pushed to your Git repository on coursework. Be sure to push changes often and be sure your final program is in your Git repository before you submit it for autograding on Gradescope. Please take note that changes/commits on GitLab are NOT automatically synced to Gradescope. You are welcome to submit as many times as you like, only the most recent submission will count for a grade.
 
-### Submitting
-Push your code to Git. Do this often.  You can use the autograder on Gradescope to test your code. UTAs will look at your analysis responses, but you will be able to see the autograding part of your grade -- worth 16 points. Since you may uncover bugs from the autograder, you should wait until you've completed debugging and coding before completing the reflect form. You’ll use the GitLab button to submit, shown in the screenshot below.
-
-<div align="center">
-  <img width="538" height="481" src="p1-figures/submit.png">
-</div>
+After completing the coding portion, fill out the reflect form here **TODO: ADD REFLECT FORM**
 
 You'll upload a PDF for the analysis part of this assignment. This is a *separate submission* in Gradescope.
-
-### Reflect
-
-Complete the reflect form after submitting to gradescope: https://do-compsci.com/201fall21-p1-reflect
 
 ### Grading
 
@@ -404,7 +349,6 @@ The autograder will check all your CelestialBody methods and the NBody methods a
 | 16 | Autograded constructor and methods for CelestialBody and code in NBody|
 | 6 |  Answers to analysis questions + reflect form |
 
-</details>
 
 [Physics]:https://docs.google.com/document/d/1LRRW970ZwgZQtsif1L1SfRBTlB_VUGJAZKYol-DHGWE/edit?usp=sharing
 
