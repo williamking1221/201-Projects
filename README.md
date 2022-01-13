@@ -56,9 +56,7 @@ This section introduces the `CelestialBody` class and describes its instance var
 <details>
 <summary>CelestialBody Instance variables</summary>
 
-The outline from IntelliJ below shows the constructor, methods, and instance variables (or fields)  of the `CelestialBody` class. You'll see this more clearly in IntelliJ.
-
-All instance variables should be `private`. All methods should be `public` (if you write helper methods they should be `private`).
+The outline below shows the constructor, methods, and instance variables (or fields)  of the `CelestialBody` class. All instance variables should be `private`. All methods should be `public` (if you write helper methods they should be `private`).
 
 <div align="center">
   <img width="400" height="400" src="p1-figures/celestialBodyMethods.png">
