@@ -2,11 +2,12 @@
 
 ## Outline
 - [Background](#background)
-- [Starter Code](#starter-code-and-using-git)
-- [Developing, Running, Testing P1 NBody ](#developing-running-testing-p1-nbody)
+- [Starter Code and Using Git](#starter-code-and-using-git)
+- [Developing, Running, Testing Code ](#developing-running-testing-code)
   - [`CelestialBody` Variables, Constructor, and Getter Methods](#celestialbody-variables-constructor-and-getter-methods)
   - [Additional `CelestialBody` Methods](#additional-celestialbody-methods)
-  - [Implement the `NBody` Class](#implement-the-nbody-class)
+  - [The `NBody` Class](#the-nbody-class)
+  - [`NBody` Methods](#nbody-methods)
 - [Running the Simulation and Analysis](#running-the-simulation-and-analysis)
 - [Submitting, Reflect, and Grading](#submitting-reflect-and-grading)
 
@@ -39,7 +40,7 @@ We'll be using Git and the installation of GitLab at [coursework.cs.duke.edu](ht
 **[This document details the workflow](https://coursework.cs.duke.edu/201-public-documentation/resources-201/-/blob/main/projectWorkflow.md) for downloading the starter code for the project, updating your code on coursework using Git, and ultimately submitting to Gradescope for autograding.** We recommend that you read and follow the directions carefully while working on a project! While coding, we recommend that you periodically (perhaps when completing a method or small section) push your changes as explained in Section 5.
 
 
-## Developing, Running, Testing P1 NBody
+## Developing, Running, Testing Code
 
 You're given the outline of a class `CelestialBody` with stub or missing methods and a constructor. You'll add code so that the class `CelestialBody.java` works as described below. This class represents a celestial body such as a planet or a sun. You'll implement [a constructor, methods to get the state of a `CelestialBody` (getters)](#instance-variables-constructors-getters), Getters, and [methods that determine the interactions between `CelestialBody` objects due to gravitational forces](#writing-the-methods). 
 
@@ -240,11 +241,21 @@ After developing, implementing, testing, and debugging these `CelestialBody` met
 
 ### The `NBody` Class
 
-The `NBody` class will use `CelestialBody` objects to run the simulation. This class consists only of `static` methods, including the main method that runs the simulation. Your task will be to implement the three `static` methods that have been outlined for you in the starter code. That code has `// TODO` comments indicating the code you need to add in the three `static` methods. These methods are described below.
+The `NBody` class will use `CelestialBody` objects to run the simulation.
+
+<details>
+<summary>Details on the CelestialBody class</summary>
+
+This class consists only of `static` methods, including the main method that runs the simulation. Your task will be to implement the three `static` methods that have been outlined for you in the starter code. That code has `// TODO` comments indicating the code you need to add in the three `static` methods. These methods are described below.
 
 <div align="center">
   <img src="p1-figures/NBodyMethods.png">
 </div>
+
+</details>
+
+<details>
+<summary>Details on Data Format</summary>
 
 The data for planets, suns, and celestial bodies in general is in the format shown below. All files in the folder data are in this format. This is the file `planets.txt`:
 
@@ -256,7 +267,12 @@ The first value is an integer _**n**_, the number of bodies for which data is gi
 
 There are _**n**_ lines, one line for each `CelestialBody`. Each line contains six values as shown above. The first five values are `doubles`: the first two are initial x and y coordinates; the next two are initial x and y velocities; the next is the mass of the `CelestialBody`. The last value on a line is a `String` specifying the file in the images folder used for the animation of the simulation.
 
+</details>
+
+
 ### NBody Methods
+
+This section describes the details of each of the three `static` methods you need to implement for the `NBody` class.
 <details>
 <summary>The method NBody.readRadius</summary>
 
