@@ -307,7 +307,7 @@ Completing the last TODO first will show a non-moving image for each body in the
 
 Most of the other TODOs in the outer, simulation loop require implementing a loop body, just as the drawing TODO used a loop over all the bodies. **You'll need to fill in the loop body**. There are three loops:
 1. Fill two arrays with x- and y- forces; the first loop.
-2. Call `update` on each body, using `dt` and arrays as parameters.
+2. Call `update` on each body, using `dt` and the corresponding elements of these arrays as parameters.
 3. Call `draw` on each body.
 
 - Create an `xForces` array and `yForces` array. Each should have the same size as the number of bodies in the simulation. You'll make new arrays on each iteration of the outer/simulation loop.
