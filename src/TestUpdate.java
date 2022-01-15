@@ -1,5 +1,4 @@
 
-
 import java.math.*;
 
 /**
@@ -37,12 +36,12 @@ public class TestUpdate {
     private static void checkUpdate() {
         System.out.println("Checking update...");
 
-        CelestialBody p1 = new CelestialBody(1.0, 1.0, 3.0, 4.0, 5.0, "jupiter.gif");
+        CelestialBody p1 = new CelestialBody(1.0, 2.0, 3.0, 4.0, 5.0, "jupiter.gif");
 
         p1.update(2.0, 1.0, -0.5);
 
         checkEquals(7.8, p1.getX(), "update()", 0.01);
-        checkEquals(8.6, p1.getY(), "update()", 0.01);
+        checkEquals(9.6, p1.getY(), "update()", 0.01);
         checkEquals(3.4, p1.getXVel(), "update()", 0.01);
         checkEquals(3.8, p1.getYVel(), "update()", 0.01);
     }
