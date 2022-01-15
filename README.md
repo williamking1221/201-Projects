@@ -1,5 +1,7 @@
 # Project 1: NBody
 
+This is the directions document for Project P1 NBody in CompSci 201 at Duke University, Spring 2022. Please follow the directions carefully while you complete the project. Please refer to the directions at https://coursework.cs.duke.edu/201spring22/p1-nbody/ rather than any forks or local copies in the event that any changes are made to the document.
+
 ## Outline
 - [Background](#background)
 - [Starter Code and Using Git](#starter-code-and-using-git)
