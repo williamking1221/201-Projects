@@ -159,11 +159,11 @@ F_x = F\frac{dx}{r}\\~\\
 F_y = F\frac{dy}{r}
 ```
 
-Note: Be careful with the signs! In particular, be aware that $`dx`$ and $`dy`$ are signed (positive or negative). By convention, we define the positive $`x`$-direction as towards the right of the screen, and the positive $`y`$-direction as towards the top. You likely do not need to worry about this if you simply use the formulas shown here.
+Note: Be careful with the signs! In particular, be aware that $`dx`$ and $`dy`$ are signed (positive or negative). By convention, we define the positive $`x`$-direction as towards the right of the screen, and the positive $`y`$-direction as towards the top.
 
 You can read about the physics for these formulas in the NBody Physics document. You can test them using the program in `TestCalcForceExertedByXY.java`.
 
-_**Mathematically F/r * dx is the same as F*dx/r. However, because of roundoff error these may not be the same computationally. You should use F*dx/r in your method**_. 
+_**Mathematically `F/r * dx` is the same as `F*dx/r`. However, because of roundoff error these may not be the same computationally. You should use `F*dx/r` in your method**_. 
 
 </details>
 
