@@ -42,7 +42,7 @@ We'll be using Git and the installation of GitLab at [coursework.cs.duke.edu](ht
 
 ## Developing, Running, Testing Code
 
-You're given the outline of a class `CelestialBody` with stub or missing methods and a constructor. You'll add code so that the class `CelestialBody.java` works as described below. This class represents a celestial body such as a planet or a sun. You'll implement [a constructor, methods to get the state of a `CelestialBody` (getters)](#instance-variables-constructors-getters), Getters, and [methods that determine the interactions between `CelestialBody` objects due to gravitational forces](#writing-the-methods). 
+You're given the outline of a class `CelestialBody` with stub or missing methods and a constructor. You'll add code so that the class `CelestialBody.java` works as described below. This class represents a celestial body such as a planet or a sun. You'll implement [a constructor, methods to get the state of a `CelestialBody` (getters)](#instance-variables-constructors-getters) and [methods that determine the interactions between `CelestialBody` objects due to gravitational forces](#writing-the-methods). 
 
 Finally, you will create a class `NBody.java` that drives a simulation between planets, suns, and celestial bodies interacting. This class will read a file of data that specifies the initial positions and masses of the bodies and then simulates their interaction over a set time period. The simulation will also animate the interactions between the bodies.
 
@@ -103,7 +103,7 @@ Now that you have the constructor and getter methods for the `CelestialBody` cla
 
 <br> 
 
-This method returns the distance between two `CelestialBody` objects. Use the standard distance formula to determine the distance between `this` body (using `myXPos` and `myYPos` or `this.myXpos` and `this.myYPos`) and the `CelestialBody` object specified by the parameter `b`. The distance is the value of $`r`$ in the formula below where
+This method returns the distance between two `CelestialBody` objects. Use the standard distance formula to determine the distance between `this` body (using `myXPos` and `myYPos` or `this.myXPos` and `this.myYPos`) and the `CelestialBody` object specified by the parameter `b`. The distance is the value of $`r`$ in the formula below where
 
 ```math
 r^2=dx^2 + dy^2
@@ -178,7 +178,7 @@ _**Mathematically F/r * dx is the same as F*dx/r. However, because of roundoff e
 
 This method returns the total/net force exerted on this body by all the bodies in the array parameter. The principle of superposition ([see Physics][Physics]) says that the net force acting on a `CelestialBody` object by many other bodies is the sum of the pairwise forces acting on the `CelestialBody` by each body. So you'll need to sum the forces returned by `calcForceExertedByX` (or `Y`) in calculating the value to return. 
 
-You must make sure _**NOT to include the force exerted by a body on itself!**_ The universe might collapse if an object attracted itself. If you loop over each element in array `bodies`, you'll need code like what's shown below to avoid summing the force of an object on itself. In the body of the if statement you'd write code to accumulate the sum of all forces exerted on `this` `CelestialBody` by the `CelestialBody b`.
+You must make sure _**NOT to include the force exerted by a body on itself!**_ The universe might collapse (Infinite/NaN error) if an object attracted itself. If you loop over each element in array `bodies`, you'll need code like what's shown below to avoid summing the force of an object on itself. In the body of the if statement you'd write code to accumulate the sum of all forces exerted on `this` `CelestialBody` by the `CelestialBody b`.
 
 <br> 
 
