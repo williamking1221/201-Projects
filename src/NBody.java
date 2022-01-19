@@ -39,7 +39,7 @@ public class NBody {
 		
 		int nb = s.nextInt();          // # bodies to be read
 		CelestialBody[] bodies = new CelestialBody[nb];
-		s.nextInt();
+		s.nextDouble();
 
 		for(int k=0; k < nb; k++) {
 			CelestialBody planet = new CelestialBody(s.nextDouble(), s.nextDouble(), s.nextDouble(), s.nextDouble(), s.nextDouble(), s.next());
